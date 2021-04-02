@@ -3,6 +3,14 @@
     <PropertyGroup>
         <RootNamespace>GdSharpHelpers</RootNamespace>
         <TargetFrameworks>net472;net48</TargetFrameworks>
+        <PackageId>GdSharpHelpers</PackageId>
+        <Version>1.0.0</Version>
+        <Authors>Simon Clement</Authors>
+        <Description>A set of helper methods to make it easier to use C# with Godot</Description>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageTags>Godot</PackageTags>
+        <PackageProjectUrl>https://github.com/SimonTC/GdSharpHelpers</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/SimonTC/GdSharpHelpers</RepositoryUrl>
     </PropertyGroup>
 
     <ItemGroup>
