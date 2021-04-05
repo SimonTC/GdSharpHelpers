@@ -1,6 +1,6 @@
 # GdSharpHelpers
 
-A small library with helper methods used for making my life easier when using C# with Godot.
+A small library with helper methods used for making my life easier when using Godot with C#.
 
 ## Helpers
 
