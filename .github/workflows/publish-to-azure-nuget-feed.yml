@@ -1,0 +1,29 @@
+name: Publish Nuget Package to Azure
+
+on:
+  release:
+    types: [ published ]
+
+jobs:
+  build-and-publish:
+    runs-on: windows-2019
+    steps:
+    - uses: actions/checkout@v2
+    - name: Restore dependencies
+      run: dotnet restore
+    - name: Build
+      run: |
+           cd "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\"
+           .\MSBuild.exe $Env:GITHUB_WORKSPACE
+    - name: Pack
+      run: dotnet pack --configuration Release -o ./pkgs
+    - name: Install Sleet
+      run: dotnet tool install -g sleet
+    - name: Push nuget package to Azure storage
+      env: 
+        SLEET_FEED_TYPE: azure
+        SLEET_FEED_CONTAINER: feed
+        SLEET_FEED_CONNECTIONSTRING: ${{secrets.SLEET_CONNECTIONSTRING}}
+      run:
+        sleet push .\pkgs\
+           
